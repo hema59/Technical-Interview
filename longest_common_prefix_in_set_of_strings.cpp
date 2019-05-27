@@ -8,7 +8,7 @@ Solution 4: Tries
 
 Example:
 
-input: {{nutcracker},{nutcase},{nuts},{nutty},{nutririon}}
+input: {"nutcracker","nutcase","nuts","nutty","nutririon"} / "feature","feats","feat","featoh"
 output: 3
 */
 
@@ -51,4 +51,47 @@ while(left<right){
   }
 cout<<"\ncommon prefix is: "<<prefix;
 return prefix.length();
+}
+string helper2commonUntil(string x,string y){
+string temp;
+for(int i=0,j=0;i<x.length()-1 && j<y.length()-1;++i,++j){
+if(x[i]==y[j])
+   temp.push_back(x[i]);
+  else
+    break;
+}
+ return temp;
+}
+
+string helper2commonUntil(string x,string y){
+string temp;
+for(int i=0,j=0;i<x.length() && j<y.length();++i,++j){
+ if(x[i]==y[j])
+    temp.push_back(x[i]);
+  else
+    break;
+ }
+return temp;
+}
+string helper2(string input[],int numberofStrings,int begin,int end){
+if(begin==end)
+    return input[begin];
+ if(begin<=end)
+  {
+    int mid=(begin+end)/2;
+    string str1=helper2(input,numberofStrings,begin,mid);
+    string str2=helper2(input,numberofStrings,mid+1,end);
+    return helper2commonUntil(str1,str2);
+  }
+}
+int Solution2(string input[],int numberofStrings){
+/*
+using divide and conquer: compare two strings at a time, find their common prefix and then repeat process for all strings;
+O(M.N) time complexity we'll be performing comparisons on M charaters for N strings
+(N log N) space
+*/
+int begin=0,end=numberofStrings-1;
+string result=helper2(input,numberofStrings,begin,end);
+return result.length();
+ }
 }
