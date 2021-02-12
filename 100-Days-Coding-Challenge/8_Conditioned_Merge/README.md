@@ -2,7 +2,7 @@ Given two arrays of ints that are sets, create a function to merge them to creat
 
 A set must pass on these three conditions:
 
-- All values are positive
+- All values are positive, delete negative numbers
 
 - Sorted
 
