@@ -6,3 +6,5 @@ Example 1:
 Number 1 : 98202001, ANSWER : 00098221
 
 Number 2 : 03240000, ANSWER : 00000324
+
+EXTRA : Try arranging them in the last or alternative😄
